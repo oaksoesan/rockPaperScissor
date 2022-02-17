@@ -35,6 +35,30 @@ function playRound(playerSelection,computerSelection) {
         playerNumber = 2;
         console.log(playerNumber)
     }
+    // The variations if the player choose "Rock(0)"
+    if (playerNumber === 0 && computerSelection === 0) {
+        console.log("It's a draw, rocks and roll")
+    }else if (playerNumber === 0 && computerSelection === 1) {
+        console.log("You lose, Paper beats Rock :( ")
+    } else if (playerNumber === 0 && computerSelection === 2) {
+        console.log("You win my friend, Rock beats Scissor !!")
+    }
+    // The variations if the player choose "Paper(1)" 
+    else if (playerNumber === 1 && computerSelection === 0) {
+        console.log("You win my friend, Paper beats Rock!!  ")
+    }else if (playerNumber === 1 && computerSelection === 1) {
+        console.log("It's a draw, Dunder Mufflin Papers Gang")   
+    } else if (playerNumber === 1 && computerSelection === 2) {
+        console.log("You lose, Scissor beats Paper :(")
+    }
+    // The variations if the player choose "Scissor(2)" 
+    else if (playerNumber === 2 && computerSelection === 0) {
+        console.log("You lose, Rock beats Scissor :(")
+    } else if (playerNumber === 2 && computerSelection === 1){
+        console.log("You win my friend, Scissor beat Paper!!")
+    } else if (playerNumber === 2 && computerSelection === 2) {
+        console.log("It's a draw, scissorhands")
+    }   
     
 }
 
