@@ -1,3 +1,10 @@
+// global varibale for counting win, lose and draw
+let win = 0;
+let lose = 0;
+let draw = 0;
+
+// function for computer's selection calculation
+
 function computerPlay() {
     // randomly create 3 random numbers (0,1,2).
     const randNumber = Math.floor(Math.random() * 3);
@@ -16,50 +23,76 @@ function computerPlay() {
 
 }
 
-computerSelection = computerPlay();
-// console.log(computerSelection);
-let playerNumber = 0;
+// function for player's selection and game logic calculation 
 
 function playRound(playerSelection,computerSelection) {
     
     if (playerSelection === "rock") {
-        console.log("rock")
+
         playerNumber = 0;
-        console.log(playerNumber)
+
     } else if (playerSelection === "paper") {
-        console.log("paper")
+
         playerNumber = 1;
-        console.log(playerNumber)
+
     } else {
-        console.log('scissor')
+        
         playerNumber = 2;
-        console.log(playerNumber)
+        
     }
+
     // The variations if the player choose "Rock(0)"
     if (playerNumber === 0 && computerSelection === 0) {
-        console.log("It's a draw, rocks and roll")
+        alert("It's a draw, rocks and roll")
+        draw++ // draw count incremental
     }else if (playerNumber === 0 && computerSelection === 1) {
-        console.log("You lose, Paper beats Rock :( ")
+        alert("You lose, Paper beats Rock :( ")
+        lose++ // lose count incremental
     } else if (playerNumber === 0 && computerSelection === 2) {
-        console.log("You win my friend, Rock beats Scissor !!")
+        alert("You win my friend, Rock beats Scissor !!")
+        win++ // win count incremental
     }
+
     // The variations if the player choose "Paper(1)" 
     else if (playerNumber === 1 && computerSelection === 0) {
-        console.log("You win my friend, Paper beats Rock!!  ")
+        alert("You win my friend, Paper beats Rock!!  ")
+        win++
     }else if (playerNumber === 1 && computerSelection === 1) {
-        console.log("It's a draw, Dunder Mufflin Papers Gang")   
+        alert("It's a draw, Dunder Mufflin Papers Gang")  
+        draw++ 
     } else if (playerNumber === 1 && computerSelection === 2) {
-        console.log("You lose, Scissor beats Paper :(")
+        alert("You lose, Scissor beats Paper :(")
+        lose++
     }
+
     // The variations if the player choose "Scissor(2)" 
     else if (playerNumber === 2 && computerSelection === 0) {
-        console.log("You lose, Rock beats Scissor :(")
+        alert("You lose, Rock beats Scissor :(")
+        lose++
     } else if (playerNumber === 2 && computerSelection === 1){
-        console.log("You win my friend, Scissor beat Paper!!")
+        alert("You win my friend, Scissor beat Paper!!")
+        win++
     } else if (playerNumber === 2 && computerSelection === 2) {
-        console.log("It's a draw, scissorhands")
+        alert("It's a draw, scissorhands")
+        draw++
     }   
     
 }
 
-playRound("paper",computerSelection);
+// a funtion that play 5 games, display each game result and display score board
+
+function game(){                                                
+    for (let i = 0; i < 5; i++){
+        computerSelection = computerPlay()
+        playerSelection = prompt("Rock, Paper or Scissor?") // User choice
+        playRound(playerSelection, computerSelection)
+    }
+    // Scoreboard format
+    alert(`In 5 games of Rock, Paper and Scissor
+    you win ${win} games, 
+    lose ${lose} games and 
+    draw ${draw} games`)
+}
+
+// trigger the game 
+game();
